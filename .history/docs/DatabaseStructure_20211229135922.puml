@@ -1,0 +1,86 @@
+@startuml aqualog
+'https://plantuml.com/class-diagram
+
+class TankType {
+    Int width(mm)
+    Int height(mm)
+    Int depth(mm)
+    Int glass_thickness(mm)
+}
+
+class User {
+
+}
+
+
+class Tank {
+    Int id
+    String name
+    Int user_id
+    Int tank_type_id
+}
+
+class WaterSource {
+    Int id
+    String? name
+    Int? tank_id
+}
+
+class WaterParameter {
+    Int id
+    String name
+}
+
+class Manufacturer {
+    Int id
+    String name
+}
+
+class WaterTest {
+    Int id
+    String name
+    water_parameter_id
+    manufacturer_id
+    Enum type (kropelkowy, paskowy, elektroniczny)
+}
+
+class WaterParameterLog {
+    Int id
+    DateTime created
+    Int user_id
+    Int water_source_id
+    int water_test_id
+    mix value
+}
+
+Tank "many" }-- "1" TankType
+Tank "many" }-- "1" User
+WaterParameterLog "many" }-- "1" WaterSource
+WaterParameterLog "many" }-- "1" WaterTest
+WaterTest }-- WaterParameter
+WaterTest }-- Manufacturer
+
+'abstract class AbstractList
+'abstract AbstractCollection
+'interface List
+'interface Collection
+'
+'List <|-- AbstractList
+'Collection <|-- AbstractCollection
+'
+'Collection <|- List
+'AbstractCollection <|- AbstractList
+'AbstractList <|-- ArrayList
+'
+'class ArrayList {
+'Object[] elementData
+'size()
+'}
+'
+'enum TimeUnit {
+'DAYS
+'HOURS
+'MINUTES
+'}
+
+@enduml
