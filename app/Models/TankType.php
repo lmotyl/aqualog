@@ -16,4 +16,10 @@ class TankType extends Model
     public const GLASS_THICKNESS = 'glass_thickness';
 
     public $timestamps = false;
+
+
+    public function tanks()
+    {
+        return $this->hasMany(Tank::class);
+    }
 }

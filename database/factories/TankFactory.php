@@ -21,7 +21,8 @@ class TankFactory extends Factory
     public function definition()
     {
         return [
-            Tank::NAME => $this->faker->word
+            Tank::NAME => $this->faker->word,
+            Tank::TANK_TYPE_ID => TankType::find()
         ];
     }
 }

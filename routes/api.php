@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TankController;
 use App\Http\Controllers\TankTypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('tank_types', [TankTypeController::class, 'tankTypes']);
+Route::get('tanks', [TankController::class, 'tanks']);
